@@ -10,7 +10,7 @@ The following list steps to reduce photometric data, using 2019-11-16 as an exam
 - Basic calibration steps: create master bias, dark, and flat frames.<br>
 For calibration files done in mode 0, they need to be downsampled by 2x2.<br>
 Although master bias file is not used, as it is essentially the same as the master dark in mode 0.<br>
-Typically, flats are taken with filter sloan _gr_ and Johnson _UBRI_.
+Typically, flats are taken with filter sloan _gr_ and Johnson _UBVRI_.
 - Processing science frames (subtract dark, divide flat).
 - Solve astrometry and save the wcs, using [astrometry.net](http://astrometry.net/).<br>
 Default upload image is the best frame in each cube (the one with most point sources identified).
