@@ -15,7 +15,7 @@ Typically, flats are taken with filter sloan _gr_ and Johnson _(U)BVRI_.
 3. Make register folder; Solve astrometry and save the wcs, using [astrometry.net](http://astrometry.net/).<br>
 - Default upload image is the best frame in each cube (the one with most point sources identified).<br>
 In the register folder, shift frames with the best frame as reference.
-- If astrometry failed after trying 5 minutes, then stack all images, using the first extension as referencce.
+- If astrometry failed after trying 5 minutes, then stack all images, using the first extension as referencce.<br>
 In the register folder, shift frames with extension 1 as reference.
 
 ### `kp84_photometric_reduction.py`
