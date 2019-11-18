@@ -13,6 +13,7 @@ Although master bias file is not used, as it is essentially the same as the mast
 Typically, flats are taken with filter sloan _gr_ and Johnson _(U)BVRI_.
 2. Processing science frames (subtract dark, divide flat).
 3. Make register folder; Solve astrometry and save the wcs, using [astrometry.net](http://astrometry.net/).<br>
+Shifts between each frames in the multi-extension cubes are calculated in this step.
 - Default upload image is the best frame in each cube (the one with most point sources identified).<br>
 In the register folder, shift frames with the best frame as reference.
 - If astrometry failed after trying 5 minutes, then stack all images, using the first extension as referencce.<br>
