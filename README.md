@@ -16,16 +16,18 @@ Typically, flats are taken with filter sloan _gr_ and Johnson _(U)BVRI_.
 Call `kp84_get_wcs.py`.<br>
 Shifts between each frames in the multi-extension cubes are calculated in this step and saved to the registter folder.
 - Default upload image is the best frame in each cube (the one with most point sources identified).<br>
-- If astrometry failed after trying 5 minutes, then stack all images, using the first extension as referencce.<br>
-I took the median of un-shifted region.
+- If astrometry failed after trying 3 minutes, then stack all images, using the first extension as referencce.<br>
+I took the median of un-shifted region, try 5 minutes this time.
 - If astrometry still fails using the stacked image, then the object's position (x, y) must be given to the following script.
 
 ### `kp84_photometric_reduction.py`
 `python kp84_photometric_reduction.py --day 20191116 --objName ZTFJ19015309 --doStack --nimages 5 --doPhase`
 1. Find the coordinate of object (from the file `input/observed.dat`). So make sure to add this
-2. Use the wcs, find the (x, y) of object in each frame.
-3. 
+2. Use the wcs, find the (x, y) of object in each frame, save to the processing fits file's headers<br>
+Remove frames where the object shifted outside of the field.
+3. If doStack or doPhase
 
 Some notes:
 - If transients, turn on `--doSubtraction --subtractionSource ps1`
-- If there are enough objects to solve for zero point, turn on `doZP`
+- If there are enough objects to solve for zero point, turn on `doZP`<br>
+This can be hard sometimes due to the limited field of view (4x4 arcmin)
