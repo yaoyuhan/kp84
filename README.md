@@ -17,6 +17,7 @@ Shifts between each frames in the multi-extension cubes are calculated in this s
 - Default upload image is the best frame in each cube (the one with most point sources identified).<br>
 - If astrometry failed after trying 5 minutes, then stack all images, using the first extension as referencce.<br>
 I took the median of un-shifted region.
+- If astrometry still fails using the stacked image, then the object's position (x, y) must be given to the following script.
 
 ### `kp84_photometric_reduction.py`
 `python kp84_setup_reduction.py --day 20191116`
