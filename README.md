@@ -13,6 +13,7 @@ Although master bias file is not used, as it is essentially the same as the mast
 Typically, flats are taken with filter sloan _gr_ and Johnson _(U)BVRI_.
 2. Processing science frames (subtract dark, divide flat).
 3. Make register folder; Solve astrometry and save the wcs, using [astrometry.net](http://astrometry.net/).<br>
+Call `kp84_get_wcs.py`.<br>
 Shifts between each frames in the multi-extension cubes are calculated in this step and saved to the registter folder.
 - Default upload image is the best frame in each cube (the one with most point sources identified).<br>
 - If astrometry failed after trying 5 minutes, then stack all images, using the first extension as referencce.<br>
@@ -20,5 +21,7 @@ I took the median of un-shifted region.
 - If astrometry still fails using the stacked image, then the object's position (x, y) must be given to the following script.
 
 ### `kp84_photometric_reduction.py`
-`python kp84_setup_reduction.py --day 20191116`
-- Add the wcs solution into processing folders
+`python kp84_photometric_reduction.py --day 20191116 --objName ZTFJ19015309 --doStack --nimages 5 --doPhase`
+1. Find the coordinate of object (from the file `input/observed.dat`). So make sure to add this
+2. Use the wcs, find the (x, y) of object in each frame.
+3. 
