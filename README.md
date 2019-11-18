@@ -25,3 +25,7 @@ I took the median of un-shifted region.
 1. Find the coordinate of object (from the file `input/observed.dat`). So make sure to add this
 2. Use the wcs, find the (x, y) of object in each frame.
 3. 
+
+Some notes:
+- If transients, turn on `--doSubtraction --subtractionSource ps1`
+- If there are enough objects to solve for zero point, turn on `doZP`
