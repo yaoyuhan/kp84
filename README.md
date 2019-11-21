@@ -22,7 +22,7 @@ I took the median of un-shifted region, try 3 minutes, specify central (ra, dec)
 - If astrometry still fails using the stacked image, then the object's position (x, y) must be given to the following script.
 
 ### `kp84_photometric_reduction.py`
-`python kp84_photometric_reduction.py --day 20191117 --objName ZTFJ01395245 --doStack --nimages 5 `
+`python kp84_photometric_reduction.py --day 20191117 --objName ZTFJ01395245 --doDifferential --doSaveImages`
 1. Find the coordinate of object (from the file `input/observed.dat`). So make sure to add this beforehead.<br>
 Then for each file (`kped_20191117_hhmmss_ZTFJ01395245*_cl_o`) that belong to the object ZTFJ01395245, do the following steps:
 2. Use the wcs, find the (x, y) of object in each frame, save to the processing fits file's headers<br>
@@ -32,11 +32,13 @@ Mask frames where the object shifted outside of the field.
 - Run [Source Extractor](https://www.astromatic.net/software/sextractor) to identify point sources. <br>
 `sex science.fits -c default.sex -PARAMETERS_NAME daofind.param -FILTER_NAME default.conv -CHECKIMAGE_TYPE BACKGROUND -CHECKIMAGE_NAME science.background.fits -CATALOG_NAME science.cat -MAG_ZEROPOINT 0.0`</br>
 All default files are in the `/defualt` directory. 
-- Run forced photometry using `PythonPhot`
+- Run forced photometry using [PythonPhot](https://github.com/djones1040/PythonPhot/blob/master/PythonPhot/aper.py)<br>
+The default aperture size is 10 pixels. This can be changed by setting `--aper_size`
 
 
 Some notes:
 - If transients, turn on `--doSubtraction --subtractionSource ps1`, then `SExtractor` will also run on `science.sub.fits`.
 - If there are enough objects to solve for zero point, turn on `doZP`<br>
 This can be hard sometimes due to the limited field of view (4x4 arcmin)
-
+- If too faint, then turn on `--doStack --nimages 5`
+- If do not turn on `--doSaveImages`, then the `science.fits` file will be deleted after photometric reduction.
