@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import os, sys, optparse, glob
+import optparse
 import subprocess
 import numpy as np
 
@@ -10,7 +10,7 @@ def parse_commandline():
     """
     parser = optparse.OptionParser()
 
-    parser.add_option("--outputDir",default="/Users/mcoughlin/Desktop")
+    parser.add_option("--outputDir",default="/Users/yuhanyao/Desktop")
     parser.add_option("--downloadType",default="data")
     parser.add_option("--objname",default="14min")
     parser.add_option("--day",default="20190427")

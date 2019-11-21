@@ -31,6 +31,7 @@ Mask frames where the object shifted outside of the field.
 - Copy the pre-processed image into output directory, name it as `science.fits`
 - Run [Source Extractor](https://www.astromatic.net/software/sextractor) to identify point sources. <br>
 `sex science.fits -c default.sex -PARAMETERS_NAME daofind.param -FILTER_NAME default.conv -CHECKIMAGE_TYPE BACKGROUND -CHECKIMAGE_NAME science.background.fits -CATALOG_NAME science.cat -MAG_ZEROPOINT 0.0`</br>
+See [this page](https://sextractor.readthedocs.io/en/latest/Param.html) for columns in the `.cat` file.<br>
 All default files are in the `/defualt` directory. 
 - Run forced photometry using [PythonPhot](https://github.com/djones1040/PythonPhot/blob/master/PythonPhot/aper.py)<br>
 The default aperture size is 10 pixels. This can be changed by setting `--aper_size`
